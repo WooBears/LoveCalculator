@@ -1,21 +1,19 @@
-package com.example.lovecalculator.fragments
+package com.example.lovecalculator.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import com.example.lovecalculator.LoveView
-import com.example.lovecalculator.Presenter
-import com.example.lovecalculator.R
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import com.example.lovecalculator.viewModel.LoveViewModel
 import com.example.lovecalculator.databinding.FragmentSecondBinding
-import com.example.lovecalculator.model.LoveModel
 
-class SecondFragment : Fragment(), LoveView{
+class SecondFragment : Fragment(){
 
     private lateinit var binding: FragmentSecondBinding
-    private val presenter = Presenter(this)
+    private val viewModel: LoveViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,14 +27,10 @@ class SecondFragment : Fragment(), LoveView{
         super.onViewCreated(view, savedInstanceState)
         val fname: String? = arguments?.getString("fname")
         val sname: String? = arguments?.getString("sname")
-        presenter.getLove(fname.toString(),sname.toString())
+        viewModel.getLiveData(fname.toString(),sname.toString())
+            .observe(viewLifecycleOwner, Observer {
+                binding.tvRes.text = it.toString()
+            })
     }
 
-    override fun showRespond(respond: String) {
-        binding.tvRes.text = respond
-    }
-
-    override fun showError(error: String) {
-        Toast.makeText(requireContext(), "Error!", Toast.LENGTH_SHORT).show()
-    }
 }
