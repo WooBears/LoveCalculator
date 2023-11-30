@@ -17,6 +17,7 @@ class OnBoardingAdapter(
         OnBoarding("Find your Love", "Find your love with whom you want to live", "https://static.vecteezy.com/system/resources/previews/001/187/438/non_2x/heart-png.png"),
         OnBoarding("Match with your Love", "Swipe to right to get the right one", "https://i0.wp.com/sreditingzone.com/wp-content/uploads/2018/03/Love-Png-HD-19.png?ssl=1"),
         OnBoarding("Connect with your Love", "Write messages to each other and be involved", "https://e7.pngegg.com/pngimages/689/350/png-clipart-heart-love-heart-shaped-red-wish-hearts-thumbnail.png"),
+        OnBoarding("Be Happy!", "Live Your Life ", "https://w7.pngwing.com/pngs/756/401/png-transparent-couple-love-love-couple-love-child-hand-thumbnail.png")
 
     )
 
