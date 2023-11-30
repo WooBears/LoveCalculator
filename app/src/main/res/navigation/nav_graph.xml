@@ -26,4 +26,9 @@
             android:name="loveModel"
             app:argType="com.example.lovecalculator.model.LoveModel" />
     </fragment>
+    <fragment
+        android:id="@+id/onBoardingFragment"
+        android:name="com.example.lovecalculator.onBoarding.OnBoardingFragment"
+        android:label="fragment_on_boarding"
+        tools:layout="@layout/fragment_on_boarding" />
 </navigation>

@@ -10,13 +10,12 @@ import androidx.navigation.fragment.findNavController
 import com.example.lovecalculator.viewModel.LoveViewModel
 import com.example.lovecalculator.R
 import com.example.lovecalculator.databinding.FragmentFirstBinding
+import dagger.hilt.android.AndroidEntryPoint
+
 
 class FirstFragment : Fragment() {
 
     private lateinit var binding: FragmentFirstBinding
-    private val viewModel: LoveViewModel by viewModels()
-    private var res: String? = null
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

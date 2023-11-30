@@ -1,9 +1,11 @@
 package com.example.lovecalculator.model
 
+import dagger.hilt.android.AndroidEntryPoint
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Query
+
 
 interface LoveApi {
     @GET("getPercentage")
