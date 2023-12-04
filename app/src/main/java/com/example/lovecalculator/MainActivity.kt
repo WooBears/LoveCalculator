@@ -3,19 +3,11 @@ package com.example.lovecalculator
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.NavHostFragment
 import com.example.lovecalculator.databinding.ActivityMainBinding
-import com.example.lovecalculator.model.LoveApi
-import com.example.lovecalculator.model.LoveModel
-import com.example.lovecalculator.model.RetrofitService
 import com.example.lovecalculator.viewModel.LoveViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import javax.inject.Inject
 
 //https://love-calculator.p.rapidapi.com/getPercentage?sname=Pahlavi&fname=Anjelina

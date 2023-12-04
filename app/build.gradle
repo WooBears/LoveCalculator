@@ -71,4 +71,10 @@ dependencies {
     //Circle Indicator
     implementation ("me.relex:circleindicator:2.1.6")
     implementation ("com.google.android.material:material:1.10.0")
+
+    implementation("androidx.room:room-runtime:2.6.1")
+    annotationProcessor("androidx.room:room-compiler:2.6.1")
+
+    // To use Kotlin annotation processing tool (kapt)
+    kapt("androidx.room:room-compiler:2.6.1")
 }

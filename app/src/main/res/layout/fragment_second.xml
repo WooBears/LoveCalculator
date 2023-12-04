@@ -28,8 +28,8 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         app:layout_constraintEnd_toEndOf="@+id/fname"
         app:layout_constraintStart_toStartOf="@+id/fname"
         app:layout_constraintTop_toBottomOf="@+id/fname" />
@@ -50,7 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="TextView"
+        android:text="Love, the only that matters!"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/sname"
         app:layout_constraintStart_toStartOf="@+id/sname"
@@ -61,7 +61,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:textSize="30sp"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="@+id/tv_percentage"
         app:layout_constraintStart_toStartOf="@+id/tv_percentage"
         app:layout_constraintTop_toBottomOf="@+id/tv_percentage" />
+
+    <Button
+        android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        app:layout_constraintTop_toBottomOf="@+id/tv_res"
+        app:layout_constraintEnd_toEndOf="@+id/tv_percentage"
+        app:layout_constraintStart_toStartOf="@+id/tv_percentage"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

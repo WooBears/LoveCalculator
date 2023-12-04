@@ -13,6 +13,12 @@
         <action
             android:id="@+id/action_firstFragment_to_secondFragment"
             app:destination="@id/secondFragment" />
+        <action
+            android:id="@+id/action_firstFragment_to_historyFragment"
+            app:destination="@id/historyFragment" />
+        <argument
+            android:name="Love"
+            app:argType="com.example.lovecalculator.model.LoveModel" />
     </fragment>
     <fragment
         android:id="@+id/secondFragment"
@@ -31,4 +37,13 @@
         android:name="com.example.lovecalculator.onBoarding.OnBoardingFragment"
         android:label="fragment_on_boarding"
         tools:layout="@layout/fragment_on_boarding" />
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.example.lovecalculator.ui.HistoryFragment"
+        android:label="fragment_history"
+        tools:layout="@layout/fragment_history" >
+        <action
+            android:id="@+id/action_historyFragment_to_firstFragment"
+            app:destination="@id/firstFragment" />
+    </fragment>
 </navigation>

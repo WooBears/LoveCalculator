@@ -2,7 +2,9 @@ package com.example.lovecalculator.di
 
 import android.content.Context
 import android.content.SharedPreferences
+import androidx.room.Room
 import com.example.lovecalculator.model.LoveApi
+import com.example.lovecalculator.room.AppDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -27,5 +29,11 @@ class AppModule {
         return context.getSharedPreferences("", Context.MODE_PRIVATE)
     }
 
+    @Provides
+    fun provideRoom(@ApplicationContext context: Context) : AppDatabase {
+        return  Room.databaseBuilder(context, AppDatabase::class.java, "love-file").
+        allowMainThreadQueries().
+        build()
+    }
 
 }

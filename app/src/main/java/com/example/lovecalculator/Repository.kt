@@ -1,12 +1,11 @@
 package com.example.lovecalculator
 
 import android.util.Log
+import android.util.LogPrinter
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.example.lovecalculator.model.LoveApi
 import com.example.lovecalculator.model.LoveModel
-import com.example.lovecalculator.model.RetrofitService
-import dagger.hilt.android.lifecycle.HiltViewModel
+import com.example.lovecalculator.room.LoveDao
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -14,7 +13,7 @@ import javax.inject.Inject
 
 
 class Repository @Inject constructor(
-    private val api: LoveApi
+    private val api: LoveApi,
 ) {
     fun getData(firstName: String, secondName: String): MutableLiveData<LoveModel>{
         val love = MutableLiveData<LoveModel>()

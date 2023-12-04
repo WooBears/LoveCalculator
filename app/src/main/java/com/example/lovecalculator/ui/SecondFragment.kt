@@ -7,9 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
+import com.example.lovecalculator.App
 import com.example.lovecalculator.Repository
 import com.example.lovecalculator.viewModel.LoveViewModel
 import com.example.lovecalculator.databinding.FragmentSecondBinding
+import com.example.lovecalculator.util.loadImage
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -29,12 +32,16 @@ class SecondFragment : Fragment(){
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val fname: String? = arguments?.getString("fname")
-        val sname: String? = arguments?.getString("sname")
-        viewModel.getLiveData(fname.toString(),sname.toString())
-            .observe(viewLifecycleOwner, Observer {
-                binding.tvRes.text = it?.percentage
-            })
-    }
 
+        val model = viewModel.getAllLove()
+
+        model.forEach {
+            binding.tvRes.text = it.percentage
+            binding.imageView3.loadImage("https://e7.pngegg.com/pngimages/631/6/png-clipart-couple-heart-heart-kiss-couple-love-red-love-kissing-couple-love-miscellaneous.png")
+        }
+
+        binding.btnBack.setOnClickListener {
+            findNavController().navigateUp()
+        }
+    }
 }
