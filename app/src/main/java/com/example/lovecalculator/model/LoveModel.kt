@@ -3,7 +3,6 @@ package com.example.lovecalculator.model
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.io.Serializable
-
 @Entity("love_table")
 data class LoveModel(
     @PrimaryKey(autoGenerate = true)

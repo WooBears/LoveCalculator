@@ -5,6 +5,10 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import com.airbnb.lottie.LottieAnimationView
+import com.airbnb.lottie.LottieCompositionFactory
+import com.airbnb.lottie.LottieDrawable
+import com.example.lovecalculator.R
 import com.example.lovecalculator.databinding.ItemViewBinding
 import com.example.lovecalculator.model.OnBoarding
 import com.example.lovecalculator.util.loadImage
@@ -14,10 +18,9 @@ class OnBoardingAdapter(
 ): Adapter<OnBoardingAdapter.OnBoardingViewHolder>() {
 
     private val list = arrayListOf<OnBoarding>(
-        OnBoarding("Find your Love", "Find your love with whom you want to live", "https://static.vecteezy.com/system/resources/previews/001/187/438/non_2x/heart-png.png"),
-        OnBoarding("Match with your Love", "Swipe to right to get the right one", "https://i0.wp.com/sreditingzone.com/wp-content/uploads/2018/03/Love-Png-HD-19.png?ssl=1"),
-        OnBoarding("Connect with your Love", "Write messages to each other and be involved", "https://e7.pngegg.com/pngimages/689/350/png-clipart-heart-love-heart-shaped-red-wish-hearts-thumbnail.png"),
-        OnBoarding("Be Happy!", "Live Your Life ", "https://w7.pngwing.com/pngs/756/401/png-transparent-couple-love-love-couple-love-child-hand-thumbnail.png")
+        OnBoarding("Find your Love", "Find your love with whom you want to live", R.raw.love1),
+        OnBoarding("Match with your Love", "Swipe to right to get the right one", R.raw.love2),
+        OnBoarding("Connect with your Love", "Write messages to each other and be involved", R.raw.love3)
 
     )
 
@@ -37,15 +40,22 @@ class OnBoardingAdapter(
         holder.onBind(list[position])
     }
 
-    inner class OnBoardingViewHolder(private val binding: ItemViewBinding): ViewHolder(binding.root)
+    inner class OnBoardingViewHolder(val binding: ItemViewBinding): ViewHolder(binding.root)
     {
+        private val lottieAnimationView: LottieAnimationView = binding.ivLottiNimation
         fun onBind(onBoarding: OnBoarding)= with(binding){
             tvTitle.text = onBoarding.title
             tvDesc.text= onBoarding.desc
-            ivBoard.loadImage(onBoarding.image.toString())
             tvSkip.isVisible= adapterPosition != list.lastIndex
             btnStart.isVisible = adapterPosition == list.lastIndex
 
+
+            LottieCompositionFactory.fromRawRes(itemView.context, onBoarding.animation)
+            .addListener { composition ->
+            lottieAnimationView.setComposition(composition)
+            lottieAnimationView.repeatCount = LottieDrawable.INFINITE
+            lottieAnimationView.playAnimation()
+        }
             btnStart.setOnClickListener {
                 onClick()
             }
